@@ -1,1 +1,44 @@
 @import "tailwindcss";
+
+/*
+ * Design tokens: the single source of truth for the visual identity.
+ * Names describe purpose (canvas, accent, danger), never the color itself.
+ */
+@theme {
+  /* Remove Tailwind's default palette: only OrderFlow tokens remain. */
+  --color-*: initial;
+
+  /* Surfaces, from the page background to raised elements */
+  --color-canvas: oklch(0.13 0.015 260);
+  --color-surface: oklch(0.165 0.016 260);
+  --color-surface-raised: oklch(0.21 0.018 260);
+
+  /* Text */
+  --color-fg: oklch(0.93 0.008 250);
+  --color-fg-muted: oklch(0.62 0.015 250);
+
+  /* Lines: dividers (decorative) and field borders (minimum 3:1) */
+  --color-line: oklch(0.28 0.015 255);
+  --color-line-strong: oklch(0.52 0.015 255);
+
+  /* Brand accent: main actions, keyboard focus, active item */
+  --color-accent: oklch(0.78 0.145 172);
+  --color-on-accent: oklch(0.15 0.02 260);
+
+  /* Status categories */
+  --color-success: oklch(0.78 0.145 172);
+  --color-warning: oklch(0.8 0.14 85);
+  --color-danger: oklch(0.64 0.2 25);
+  --color-info: oklch(0.72 0.12 230);
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-fg);
+  }
+}

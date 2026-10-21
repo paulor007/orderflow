@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@import "@fontsource-variable/space-grotesk";
+@import "@fontsource-variable/jetbrains-mono";
 
 /*
  * Design tokens: the single source of truth for the visual identity.
@@ -30,6 +32,10 @@
   --color-warning: oklch(0.8 0.14 85);
   --color-danger: oklch(0.64 0.2 25);
   --color-info: oklch(0.72 0.12 230);
+
+  /* Typography: self-hosted variable fonts with system fallbacks */
+  --font-sans: "Space Grotesk Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
 }
 
 @layer base {
@@ -40,5 +46,7 @@
   body {
     background-color: var(--color-canvas);
     color: var(--color-fg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }

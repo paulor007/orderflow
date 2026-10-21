@@ -39,6 +39,15 @@
 
   /* Wide letter spacing for small uppercase labels (overlines) */
   --tracking-overline: 0.2em;
+
+  /* Corner radius by role (pills and avatars use rounded-full) */
+  --radius-*: initial;
+  --radius-control: 0.375rem;
+  --radius-card: 0.75rem;
+
+  /* Elevation: only floating layers (menus, dialogs, toasts) cast a shadow */
+  --shadow-*: initial;
+  --shadow-overlay: 0 16px 40px -12px oklch(0 0 0 / 70%);
 }
 
 @layer base {

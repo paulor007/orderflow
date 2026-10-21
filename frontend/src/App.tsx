@@ -81,10 +81,10 @@ function ColorSection() {
         {colorTokens.map((token) => (
           <li
             key={token.name}
-            className="rounded-lg border border-line bg-surface p-4"
+            className="rounded-card border border-line bg-surface p-4"
           >
             <div
-              className={`h-14 rounded-md border border-line ${token.className}`}
+              className={`h-14 rounded-control border border-line ${token.className}`}
             />
             <p className="mt-3 font-mono text-sm">{token.name}</p>
             <p className="text-sm text-fg-muted">{token.use}</p>
@@ -92,10 +92,10 @@ function ColorSection() {
         ))}
       </ul>
 
-      <div className="mt-6 rounded-lg border border-line bg-surface p-6">
+      <div className="mt-6 rounded-card border border-line bg-surface p-6">
         <h3 className="text-lg font-semibold">Pares de leitura</h3>
         <div className="mt-4 flex flex-wrap items-center gap-4">
-          <span className="rounded-md bg-accent px-3 py-1.5 font-semibold text-on-accent">
+          <span className="rounded-control bg-accent px-3 py-1.5 font-semibold text-on-accent">
             Texto sobre accent
           </span>
           <span className="text-success">Pago</span>
@@ -114,7 +114,7 @@ function TypographySection() {
       <h2 className="text-xl font-semibold">Tipografia</h2>
 
       <div className="mt-4 grid gap-4 sm:grid-cols-2">
-        <div className="rounded-lg border border-line bg-surface p-6">
+        <div className="rounded-card border border-line bg-surface p-6">
           <p className="text-xs text-fg-muted">Interface · font-sans</p>
           <p className="mt-2 text-3xl">Space Grotesk</p>
 
@@ -126,7 +126,7 @@ function TypographySection() {
           </div>
         </div>
 
-        <div className="rounded-lg border border-line bg-surface p-6">
+        <div className="rounded-card border border-line bg-surface p-6">
           <p className="text-xs text-fg-muted">Dados técnicos · font-mono</p>
           <p className="mt-2 font-mono text-3xl">JetBrains Mono</p>
           <p className="mt-3 font-mono text-sm text-fg-muted">
@@ -135,7 +135,7 @@ function TypographySection() {
         </div>
       </div>
 
-      <ul className="mt-6 divide-y divide-line rounded-lg border border-line bg-surface">
+      <ul className="mt-6 divide-y divide-line rounded-card border border-line bg-surface">
         {typeRoles.map((item) => (
           <li key={item.role} className="p-4 sm:p-6">
             <p className="text-xs text-fg-muted">{item.role}</p>
@@ -149,7 +149,7 @@ function TypographySection() {
         ))}
       </ul>
 
-      <div className="mt-6 rounded-lg border border-line bg-surface p-6">
+      <div className="mt-6 rounded-card border border-line bg-surface p-6">
         <h3 className="text-lg font-semibold">Números em colunas</h3>
 
         <div className="mt-4 grid max-w-md grid-cols-2 gap-8">

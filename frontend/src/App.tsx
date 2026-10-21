@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const colorTokens = [
   { name: "canvas", className: "bg-canvas", use: "Fundo da página" },
   { name: "surface", className: "bg-surface", use: "Cartões e painéis" },
@@ -110,7 +112,7 @@ function ColorSection() {
 
 function TypographySection() {
   return (
-    <section className="mt-12">
+    <section id="tipografia" className="mt-12">
       <h2 className="text-xl font-semibold">Tipografia</h2>
 
       <div className="mt-4 grid gap-4 sm:grid-cols-2">
@@ -178,6 +180,95 @@ function TypographySection() {
   );
 }
 
+function InteractionSection() {
+  const [isOverlayOpen, setIsOverlayOpen] = useState(false);
+
+  return (
+    <section className="mt-12">
+      <h2 className="text-xl font-semibold">Camadas e interação</h2>
+
+      <div className="mt-4 grid gap-4 sm:grid-cols-3">
+        <div className="rounded-card border border-line bg-surface p-4">
+          <p className="font-mono text-sm">surface</p>
+          <p className="text-sm text-fg-muted">Cartões e painéis</p>
+        </div>
+
+        <div className="rounded-card border border-line bg-surface-raised p-4">
+          <p className="font-mono text-sm">surface-raised</p>
+          <p className="text-sm text-fg-muted">Destaque e hover</p>
+        </div>
+
+        <div className="rounded-card border border-line bg-surface-raised p-4 shadow-overlay">
+          <p className="font-mono text-sm">shadow-overlay</p>
+          <p className="text-sm text-fg-muted">Menus, janelas e avisos</p>
+        </div>
+      </div>
+
+      <div className="mt-6 rounded-card border border-line bg-surface p-6">
+        <h3 className="text-lg font-semibold">Navegação por teclado</h3>
+
+        <p className="mt-1 text-sm text-fg-muted">
+          Use Tab e Shift+Tab: cada elemento mostra o contorno de foco.
+        </p>
+
+        <div className="mt-4 flex flex-wrap items-end gap-4">
+          <a
+            href="#tipografia"
+            className="text-sm text-accent underline underline-offset-4 hover:no-underline"
+          >
+            Ir para Tipografia
+          </a>
+
+          <div>
+            <label
+              htmlFor="order-search"
+              className="block text-xs text-fg-muted"
+            >
+              Buscar pedido
+            </label>
+
+            <input
+              id="order-search"
+              type="search"
+              placeholder="#1043"
+              className="mt-1 w-40 rounded-control border border-line-strong bg-canvas px-3 py-2 text-sm placeholder:text-fg-muted"
+            />
+          </div>
+
+          <button
+            type="button"
+            aria-expanded={isOverlayOpen}
+            aria-controls="demo-overlay"
+            onClick={() => setIsOverlayOpen((isOpen) => !isOpen)}
+            className="rounded-control bg-accent px-4 py-2 text-sm font-semibold text-on-accent transition-colors duration-150 hover:bg-accent/85"
+          >
+            {isOverlayOpen ? "Ocultar camada" : "Mostrar camada"}
+          </button>
+
+          <button
+            type="button"
+            disabled
+            className="rounded-control border border-line px-4 py-2 text-sm text-fg-muted disabled:opacity-50"
+          >
+            Indisponível
+          </button>
+        </div>
+
+        {isOverlayOpen && (
+          <div
+            id="demo-overlay"
+            className="mt-4 rounded-card border border-line bg-surface-raised p-4 shadow-overlay"
+          >
+            <p className="text-sm">
+              Camada flutuante: fica acima do conteúdo e projeta sombra.
+            </p>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
+
 function App() {
   return (
     <main className="mx-auto max-w-5xl px-4 py-10 sm:px-8">
@@ -189,12 +280,14 @@ function App() {
         <h1 className="mt-2 text-3xl font-bold">OrderFlow</h1>
 
         <p className="mt-2 text-fg-muted">
-          Fundamentos visuais da interface: cores e tipografia.
+          Fundamentos visuais da interface: cores, tipografia, camadas e
+          interação.
         </p>
       </header>
 
       <ColorSection />
       <TypographySection />
+      <InteractionSection />
     </main>
   );
 }

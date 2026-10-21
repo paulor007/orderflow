@@ -36,6 +36,9 @@
   /* Typography: self-hosted variable fonts with system fallbacks */
   --font-sans: "Space Grotesk Variable", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
+
+  /* Wide letter spacing for small uppercase labels (overlines) */
+  --tracking-overline: 0.2em;
 }
 
 @layer base {

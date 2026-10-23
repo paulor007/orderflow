@@ -3,6 +3,7 @@ import { Button } from "../components/ui/Button";
 import { Card } from "../components/ui/Card";
 import { StatusBadge, type StatusTone } from "../components/ui/StatusBadge";
 import { TextLink } from "../components/ui/TextLink";
+import { ExternalLink } from "../components/ui/ExternalLink";
 
 const colorTokens = [
   { name: "canvas", className: "bg-canvas", use: "Fundo da página" },
@@ -228,10 +229,10 @@ function ComponentsSection() {
       <Card className="mt-6">
         <h3 className="text-lg font-semibold">Links</h3>
         <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-          <TextLink href="#tipografia">Voltar para Tipografia</TextLink>
-          <TextLink href="https://github.com/paulor007/orderflow" external>
+          <TextLink to="#tipografia">Voltar para Tipografia</TextLink>
+          <ExternalLink href="https://github.com/paulor007/orderflow">
             Código no GitHub
-          </TextLink>
+          </ExternalLink>
         </div>
       </Card>
     </section>
@@ -267,7 +268,7 @@ function InteractionSection() {
         </p>
 
         <div className="mt-4 flex flex-wrap items-end gap-4">
-          <TextLink href="#tipografia" className="text-sm">
+          <TextLink to="#tipografia" className="text-sm">
             Ir para Tipografia
           </TextLink>
 
@@ -316,12 +317,15 @@ function InteractionSection() {
 
 export function DesignSystemPage() {
   return (
-    <main className="mx-auto max-w-5xl px-4 py-10 sm:px-8">
+    <div className="mx-auto max-w-5xl px-4 py-10 sm:px-8">
+      <title>Design system — OrderFlow</title>
+
       <header className="border-b border-line pb-6">
         <p className="font-mono text-xs tracking-overline text-accent uppercase">
-          Etapa 2 · Design system
+          OrderFlow
         </p>
-        <h1 className="mt-2 text-3xl font-bold">OrderFlow</h1>
+
+        <h1 className="mt-2 text-3xl font-bold">Design system</h1>
         <p className="mt-2 text-fg-muted">
           Fundamentos visuais da interface: cores, tipografia, componentes e
           interação.
@@ -332,6 +336,6 @@ export function DesignSystemPage() {
       <TypographySection />
       <ComponentsSection />
       <InteractionSection />
-    </main>
+    </div>
   );
 }

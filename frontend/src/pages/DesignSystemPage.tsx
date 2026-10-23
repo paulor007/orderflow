@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Button } from "./components/ui/Button";
-import { Card } from "./components/ui/Card";
-import { StatusBadge, type StatusTone } from "./components/ui/StatusBadge";
-import { TextLink } from "./components/ui/TextLink";
+import { Button } from "../components/ui/Button";
+import { Card } from "../components/ui/Card";
+import { StatusBadge, type StatusTone } from "../components/ui/StatusBadge";
+import { TextLink } from "../components/ui/TextLink";
 
 const colorTokens = [
   { name: "canvas", className: "bg-canvas", use: "Fundo da página" },
@@ -314,7 +314,7 @@ function InteractionSection() {
   );
 }
 
-function App() {
+export function DesignSystemPage() {
   return (
     <main className="mx-auto max-w-5xl px-4 py-10 sm:px-8">
       <header className="border-b border-line pb-6">
@@ -335,5 +335,3 @@ function App() {
     </main>
   );
 }
-
-export default App;

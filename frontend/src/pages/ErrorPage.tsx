@@ -19,8 +19,10 @@ export function ErrorPage() {
       </h1>
 
       <p className="mt-4 text-fg-muted">
-        Não foi possível exibir esta página. Recarregue para tentar de novo; se
-        o problema continuar, volte à apresentação.
+        <p className="mt-4 text-fg-muted">
+          Não foi possível exibir esta página. Recarregue para tentar de novo;
+          se o problema continuar, volte ao início.
+        </p>
       </p>
 
       <div className="mt-8 flex flex-wrap gap-3">
@@ -29,7 +31,7 @@ export function ErrorPage() {
         </Button>
 
         <ButtonLink to="/" variant="secondary">
-          Voltar à apresentação
+          Voltar ao início
         </ButtonLink>
       </div>
     </main>

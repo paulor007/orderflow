@@ -1,16 +1,10 @@
 import { Link, Outlet, ScrollRestoration, useMatch } from "react-router";
+import { Logo } from "../components/brand/Logo";
 import { ButtonLink } from "../components/ui/ButtonLink";
 import { ExternalLink } from "../components/ui/ExternalLink";
 
 const REPOSITORY_URL = "https://github.com/paulor007/orderflow";
-
-function Wordmark() {
-  return (
-    <span className="text-lg font-bold tracking-tight">
-      Order<span className="text-accent">Flow</span>
-    </span>
-  );
-}
+const CURRENT_YEAR = new Date().getFullYear();
 
 export function PublicLayout() {
   const isAccessPage = useMatch("/entrar") !== null;
@@ -31,25 +25,16 @@ export function PublicLayout() {
             aria-label="OrderFlow, página inicial"
             className="rounded-control"
           >
-            <Wordmark />
+            <Logo />
           </Link>
 
-          <div className="flex items-center gap-6">
-            <ExternalLink
-              href={REPOSITORY_URL}
-              className="hidden text-sm sm:inline"
-            >
-              GitHub
-            </ExternalLink>
-
-            {isAccessPage ? (
-              <ButtonLink to="/" variant="secondary">
-                Voltar à apresentação
-              </ButtonLink>
-            ) : (
-              <ButtonLink to="/entrar">Acessar demonstração</ButtonLink>
-            )}
-          </div>
+          {isAccessPage ? (
+            <ButtonLink to="/" variant="secondary">
+              Voltar ao início
+            </ButtonLink>
+          ) : (
+            <ButtonLink to="/entrar">Acessar Plataforma</ButtonLink>
+          )}
         </div>
       </header>
 
@@ -58,10 +43,18 @@ export function PublicLayout() {
       </main>
 
       <footer className="border-t border-line">
-        <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-8 text-sm text-fg-muted sm:flex-row sm:items-center sm:justify-between sm:px-8">
-          <Wordmark />
-          <p>Projeto de portfólio em desenvolvimento, com dados fictícios.</p>
-          <ExternalLink href={REPOSITORY_URL}>Código no GitHub</ExternalLink>
+        <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-8 text-sm text-fg-muted sm:flex-row sm:items-end sm:justify-between sm:px-8">
+          <div>
+            <Logo />
+            <p className="mt-2">
+              Gestão de pedidos, estoque e pagamentos em uma só plataforma.
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-2 sm:items-end">
+            <ExternalLink href={REPOSITORY_URL}>Código no GitHub</ExternalLink>
+            <p>© {CURRENT_YEAR} OrderFlow</p>
+          </div>
         </div>
       </footer>
 

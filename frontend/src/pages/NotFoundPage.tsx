@@ -18,7 +18,7 @@ export function NotFoundPage() {
       </p>
 
       <p className="mt-6">
-        <TextLink to="/">Voltar à apresentação</TextLink>
+        <TextLink to="/">Voltar ao início</TextLink>
       </p>
     </section>
   );

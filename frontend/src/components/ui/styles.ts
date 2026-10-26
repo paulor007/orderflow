@@ -1,6 +1,7 @@
 import { cn } from "../../lib/cn";
 
 export type ButtonVariant = "primary" | "secondary" | "danger";
+export type ButtonSize = "md" | "lg";
 
 const buttonVariantClasses: Record<ButtonVariant, string> = {
   primary: "bg-accent text-on-accent hover:brightness-110",
@@ -8,15 +9,23 @@ const buttonVariantClasses: Record<ButtonVariant, string> = {
   danger: "bg-danger text-on-accent hover:brightness-110",
 };
 
-/** Classes shared by <Button> and <ButtonLink>, so both look the same. */
-export function buttonClasses(variant: ButtonVariant): string {
+const buttonSizeClasses: Record<ButtonSize, string> = {
+  md: "h-11 px-5 text-sm sm:h-10 sm:px-4",
+  lg: "h-12 px-7 text-base",
+};
+
+export function buttonClasses(
+  variant: ButtonVariant,
+  size: ButtonSize = "md",
+): string {
   return cn(
-    "inline-flex h-11 items-center justify-center gap-2 rounded-control px-5 text-sm font-semibold transition sm:h-10 sm:px-4",
+    "inline-flex items-center justify-center gap-2 rounded-control font-semibold transition active:scale-97",
     "disabled:pointer-events-none disabled:opacity-50",
     buttonVariantClasses[variant],
+    buttonSizeClasses[size],
+    variant === "primary" && size === "lg" && "shadow-glow",
   );
 }
 
-/** Classes shared by <TextLink> and <ExternalLink>. */
 export const textLinkClasses =
   "text-accent underline underline-offset-4 hover:no-underline";

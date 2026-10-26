@@ -27,11 +27,18 @@
   --color-accent: oklch(0.78 0.145 172);
   --color-on-accent: oklch(0.15 0.02 260);
 
-  /* Status categories */
+  /* Status categories (briefing, section 8) */
   --color-success: oklch(0.78 0.145 172);
   --color-warning: oklch(0.8 0.14 85);
   --color-danger: oklch(0.64 0.2 25);
   --color-info: oklch(0.72 0.12 230);
+
+  /* Business domains: each service has its own identity color */
+  --color-domain-orders: oklch(0.77 0.13 224);
+  --color-domain-payments: oklch(0.66 0.18 286);
+  --color-domain-notifications: oklch(0.82 0.15 81);
+  --color-domain-inventory: oklch(0.71 0.17 360);
+  --color-domain-masterdata: oklch(0.8 0.17 135);
 
   /* Typography: self-hosted variable fonts with system fallbacks */
   --font-sans: "Space Grotesk Variable", ui-sans-serif, system-ui, sans-serif;
@@ -48,6 +55,113 @@
   /* Elevation: only floating layers (menus, dialogs, toasts) cast a shadow */
   --shadow-*: initial;
   --shadow-overlay: 0 16px 40px -12px oklch(0 0 0 / 70%);
+
+  /* Functional glow: highlights the main action and live elements */
+  --shadow-glow: 0 0 40px -8px
+    color-mix(in oklab, var(--color-accent) 35%, transparent);
+  --shadow-dot: 0 0 8px currentColor;
+  --text-shadow-glow: 0 0 24px
+    color-mix(in oklab, var(--color-accent) 45%, transparent);
+
+  /* Motion: message flow, status pulse and entrance */
+  --animate-flow-dash: flow-dash 1.2s linear infinite;
+  --animate-message-travel: message-travel 4s linear infinite;
+  --animate-pulse-dot: pulse-dot 2s ease-in-out infinite;
+  --animate-rise: rise 0.5s cubic-bezier(0.23, 1, 0.32, 1) both;
+
+  @keyframes flow-dash {
+    to {
+      stroke-dashoffset: -12;
+    }
+  }
+
+  @keyframes message-travel {
+    0% {
+      offset-distance: 0%;
+      opacity: 0;
+    }
+
+    8%,
+    92% {
+      opacity: 1;
+    }
+
+    100% {
+      offset-distance: 100%;
+      opacity: 0;
+    }
+  }
+
+  @keyframes pulse-dot {
+    50% {
+      opacity: 0.35;
+    }
+  }
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+  }
+}
+
+/* Two-level technical grid: wide accent lines over a fine neutral mesh */
+@utility bg-blueprint {
+  background-image:
+    linear-gradient(
+      to right,
+      color-mix(in oklab, var(--color-accent) 7%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in oklab, var(--color-accent) 7%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to right,
+      color-mix(in oklab, var(--color-fg) 4%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in oklab, var(--color-fg) 4%, transparent) 1px,
+      transparent 1px
+    );
+  background-size:
+    168px 168px,
+    168px 168px,
+    42px 42px,
+    42px 42px;
+}
+
+/* Small "+" marks on two corners, like an engineering blueprint */
+@utility crosshair {
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 11px;
+    height: 11px;
+    pointer-events: none;
+    background:
+      linear-gradient(currentColor, currentColor) center / 1px 100% no-repeat,
+      linear-gradient(currentColor, currentColor) center / 100% 1px no-repeat;
+    color: color-mix(in oklab, var(--color-fg) 30%, transparent);
+  }
+
+  &::before {
+    top: -6px;
+    left: -6px;
+  }
+
+  &::after {
+    right: -6px;
+    bottom: -6px;
+  }
 }
 
 @layer base {
@@ -79,13 +193,20 @@
     color: var(--color-on-accent);
   }
 
-  /* Tailwind 4 keeps the default cursor on buttons */
+  /* Tailwind 4 keeps the default cursor on buttons; the web convention is a pointer */
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]) {
     cursor: pointer;
   }
 
-  /* Respect users who ask the system to reduce motion */
+  /* A container marked as paused freezes every animation inside it */
+  [data-motion="paused"] *,
+  [data-motion="paused"] *::before,
+  [data-motion="paused"] *::after {
+    animation-play-state: paused !important;
+  }
+
+  /* Respect users who ask the operating system to reduce motion */
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,

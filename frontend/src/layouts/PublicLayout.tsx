@@ -1,9 +1,7 @@
 import { Link, Outlet, ScrollRestoration, useMatch } from "react-router";
 import { Logo } from "../components/brand/Logo";
 import { ButtonLink } from "../components/ui/ButtonLink";
-import { ExternalLink } from "../components/ui/ExternalLink";
 
-const REPOSITORY_URL = "https://github.com/paulor007/orderflow";
 const CURRENT_YEAR = new Date().getFullYear();
 
 export function PublicLayout() {
@@ -51,10 +49,7 @@ export function PublicLayout() {
             </p>
           </div>
 
-          <div className="flex flex-col gap-2 sm:items-end">
-            <ExternalLink href={REPOSITORY_URL}>Código no GitHub</ExternalLink>
-            <p>© {CURRENT_YEAR} OrderFlow</p>
-          </div>
+          <p>© {CURRENT_YEAR} OrderFlow</p>
         </div>
       </footer>
 

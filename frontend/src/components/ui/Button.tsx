@@ -1,13 +1,15 @@
 import type { ComponentProps } from "react";
 import { cn } from "../../lib/cn";
-import { buttonClasses, type ButtonVariant } from "./styles";
+import { buttonClasses, type ButtonSize, type ButtonVariant } from "./styles";
 
 type ButtonProps = ComponentProps<"button"> & {
   variant?: ButtonVariant;
+  size?: ButtonSize;
 };
 
 export function Button({
   variant = "primary",
+  size = "md",
   type = "button",
   className,
   ...props
@@ -15,7 +17,7 @@ export function Button({
   return (
     <button
       type={type}
-      className={cn(buttonClasses(variant), className)}
+      className={cn(buttonClasses(variant, size), className)}
       {...props}
     />
   );

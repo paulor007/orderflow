@@ -144,23 +144,23 @@
   &::after {
     content: "";
     position: absolute;
-    width: 11px;
-    height: 11px;
+    width: 8px;
+    height: 8px;
     pointer-events: none;
     background:
-      linear-gradient(currentColor, currentColor) center / 1px 100% no-repeat,
-      linear-gradient(currentColor, currentColor) center / 100% 1px no-repeat;
-    color: color-mix(in oklab, var(--color-fg) 30%, transparent);
+      linear-gradient(currentColor, currentColor) center / 2px 100% no-repeat,
+      linear-gradient(currentColor, currentColor) center / 100% 2px no-repeat;
+    color: color-mix(in oklab, var(--color-fg) 20%, transparent);
   }
 
   &::before {
-    top: -6px;
-    left: -6px;
+    top: -4px;
+    left: -4px;
   }
 
   &::after {
-    right: -6px;
-    bottom: -6px;
+    right: -4px;
+    bottom: -4px;
   }
 }
 

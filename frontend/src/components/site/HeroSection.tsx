@@ -8,7 +8,7 @@ export function HeroSection() {
       aria-labelledby="hero-heading"
       className="relative isolate overflow-hidden bg-canvas"
     >
-      {/* Fundo original do Manus */}
+      {/* Hero background and visual overlays */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         <img
           src={heroBackground}
@@ -24,8 +24,8 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-linear-to-t from-canvas via-transparent to-transparent" />
       </div>
 
-      {/* Conteúdo do Hero */}
-      <div className="relative z-10 mx-auto grid min-h-[calc(100dvh-4rem)] w-full max-w-[1600px] items-center gap-14 px-6 py-20 md:px-10 xl:grid-cols-[minmax(0,1.12fr)_minmax(0,1fr)] xl:gap-16 xl:px-12">
+      {/* Hero Content */}
+      <div className="page-container relative z-10 grid min-h-[calc(100dvh-4rem)] items-center gap-14 py-20 xl:grid-cols-[minmax(0,1.12fr)_minmax(0,1fr)] xl:gap-16">
         {/* Apresentação do produto */}
         <div className="max-w-[750px]">
           <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-accent/25 bg-accent/10 px-3 py-2">

@@ -17,7 +17,7 @@ export function PublicLayout() {
       </a>
 
       <header className="sticky top-0 z-10 border-b border-line bg-canvas">
-        <div className="mx-auto flex h-16 w-full max-w-[1600px] items-center justify-between gap-4 px-6 md:px-10 xl:px-12">
+        <div className="page-container flex h-16 items-center justify-between gap-4">
           <Link
             to="/"
             aria-label="OrderFlow, página inicial"

@@ -1,5 +1,6 @@
 import heroBackground from "../../assets/hero-bg.webp";
 import { ButtonLink } from "../ui/ButtonLink";
+import { buttonClasses } from "../ui/styles";
 import { HeroSystemPreview } from "./HeroSystemPreview";
 
 export function HeroSection() {
@@ -25,20 +26,9 @@ export function HeroSection() {
       </div>
 
       {/* Hero Content */}
-      <div className="page-container relative z-10 grid min-h-[calc(100dvh-4rem)] items-center gap-14 py-20 xl:grid-cols-[minmax(0,1.12fr)_minmax(0,1fr)] xl:gap-16">
+      <div className="page-container relative z-10 grid min-h-[calc(100dvh-4rem)] items-center gap-14 py-20 xl:grid-cols-[minmax(0,1.12fr)_minmax(0,1fr)] xl:content-center xl:items-start xl:gap-16">
         {/* Apresentação do produto */}
         <div className="max-w-[750px]">
-          <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-accent/25 bg-accent/10 px-3 py-2">
-            <span
-              aria-hidden="true"
-              className="size-1.5 rounded-full bg-accent"
-            />
-
-            <span className="font-mono text-[11px] font-semibold tracking-wider text-accent uppercase">
-              Pedidos · Pagamentos · Estoque
-            </span>
-          </div>
-
           <h1
             id="hero-heading"
             className="text-[clamp(2.6rem,4vw,4rem)] leading-[1.1] font-bold tracking-tight text-fg"
@@ -51,14 +41,22 @@ export function HeroSection() {
           </h1>
 
           <p className="mt-7 max-w-xl text-base leading-8 text-fg-muted sm:text-lg">
-            Uma plataforma para organizar pedidos, acompanhar pagamentos e
-            estoque e ter uma visão mais clara de cada etapa da operação.
+            Acompanhe cada pedido da criação à entrega. Organize estoque,
+            pagamentos e avisos aos clientes em um só lugar, com mais clareza e
+            controle sobre cada etapa da operação.
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-4">
             <ButtonLink to="/entrar" size="lg">
               Acessar Plataforma
             </ButtonLink>
+
+            <a
+              href="#como-funciona"
+              className={buttonClasses("secondary", "lg")}
+            >
+              Como funciona
+            </a>
           </div>
         </div>
 

@@ -173,6 +173,12 @@
   background-size: 56px 56px;
 }
 
+/* Soft glow in the color of the element's domain (set through --domain) */
+@utility glow-domain {
+  box-shadow: 0 8px 40px -12px
+    color-mix(in oklab, var(--domain) 25%, transparent);
+}
+
 /* Small "+" marks on two corners, like an engineering blueprint */
 @utility crosshair {
   position: relative;

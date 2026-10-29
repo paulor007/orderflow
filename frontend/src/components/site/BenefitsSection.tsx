@@ -9,6 +9,7 @@ import {
 import tracingVisual from "../../assets/tracing-visual.webp";
 import { cn } from "../../lib/cn";
 import { SectionMarker } from "./SectionMarker";
+import { SectionTitle } from "./SectionTitle";
 
 type Benefit = {
   icon: LucideIcon;
@@ -86,17 +87,11 @@ export function BenefitsSection() {
 
         {/* Section heading */}
         <div className="mb-14 max-w-2xl">
-          <p className="font-mono text-xs tracking-overline text-accent uppercase">
-            Benefícios
-          </p>
-
-          <h2
+          <SectionTitle
             id="beneficios-titulo"
-            className="mt-3 text-4xl font-bold tracking-tight text-balance text-fg md:text-5xl"
-          >
-            <span className="block">Do pedido à entrega,</span>
-            <span className="block">sem nada se perder.</span>
-          </h2>
+            overline="Benefícios"
+            lines={["Do pedido à entrega,", "sem nada se perder."]}
+          />
         </div>
 
         {/* Responsive benefits grid */}
